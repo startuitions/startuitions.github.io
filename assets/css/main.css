@@ -1822,6 +1822,7 @@ section,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  touch-action: manipulation;
 }
 
 /* Hover effect for checkbox */
@@ -2599,8 +2600,8 @@ body {
 .swiper-nav-buttons {
   display: flex;
   justify-content: center; /* Center horizontally */
-  margin: 20px 0; /* Add some margin */
-  flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+  flex-wrap: wrap; /* Allow buttons to wrap onto multiple lines */
+  margin: 20px 0;
 }
 
 .swiper-button {
@@ -2610,8 +2611,11 @@ body {
   padding: 10px 30px;
   transition: 0.4s;
   border-radius: 50px;
-  margin: 0 10px;
-  font-size: 16px; /* Default font size */
+  margin: 10px; /* Add margin to create space between buttons */
+  flex: 1 1 45%; /* Make the buttons take up 45% of the width, with some flexibility */
+  max-width: 200px; /* Set a maximum width for larger screens */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  text-align: center; /* Center the text inside buttons */
 }
 
 /* Hover effect */
@@ -2622,14 +2626,16 @@ body {
 /* Adjust button size for smaller screens */
 @media (max-width: 768px) {
   .swiper-button {
-    padding: 8px 20px; /* Reduce padding for smaller screens */
-    font-size: 14px; /* Reduce font size */
+    flex: 1 1 45%; /* Buttons will break into two rows more easily on smaller screens */
+    padding: 8px 20px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .swiper-button {
-    padding: 6px 15px; /* Further reduce padding for very small screens */
-    font-size: 12px; /* Further reduce font size */
+    flex: 1 1 90%; /* Buttons take up most of the width, stacking into a single column on very small screens */
+    padding: 6px 15px;
+    font-size: 12px;
   }
 }
