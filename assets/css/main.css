@@ -2600,6 +2600,7 @@ body {
   display: flex;
   justify-content: center; /* Center horizontally */
   margin: 20px 0; /* Add some margin */
+  flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
 }
 
 .swiper-button {
@@ -2610,9 +2611,25 @@ body {
   transition: 0.4s;
   border-radius: 50px;
   margin: 0 10px;
+  font-size: 16px; /* Default font size */
 }
 
 /* Hover effect */
 .swiper-button:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+/* Adjust button size for smaller screens */
+@media (max-width: 768px) {
+  .swiper-button {
+    padding: 8px 20px; /* Reduce padding for smaller screens */
+    font-size: 14px; /* Reduce font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-button {
+    padding: 6px 15px; /* Further reduce padding for very small screens */
+    font-size: 12px; /* Further reduce font size */
+  }
 }
