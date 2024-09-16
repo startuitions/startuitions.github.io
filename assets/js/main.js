@@ -220,47 +220,51 @@
     });
   });
 
-  var form = document.getElementById("my-form");
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the default way
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-  
-    var thisForm = event.target;
-    thisForm.querySelector('.loading').classList.add('d-block');
-    thisForm.querySelector('.error-message').classList.remove('d-block');
-    thisForm.querySelector('.sent-message').classList.remove('d-block');
-  
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      return response.json().then(data => {
-        thisForm.querySelector('.loading').classList.remove('d-block');
-        if (JSON.stringify(data) === JSON.stringify({ next: "/thanks?language=en", ok: true })) {
-          thisForm.querySelector('.sent-message').classList.add('d-block');
-          form.reset();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Convert FormData to a plain object
+    const data = {};
+    formData.forEach((value, key) => {
+        if (data[key]) {
+            if (!Array.isArray(data[key])) {
+                data[key] = [data[key]];
+            }
+            data[key].push(value);
         } else {
-          if (Object.hasOwn(data, 'errors')) {
-            // displayError(thisForm, data["errors"].map(error => error["message"]).join(", "));
-          } else {
-            displayError(thisForm, "Oops! There was a problem submitting your form");
-          }
+            data[key] = value;
         }
-      });
-    }).catch(error => {
-      displayError(thisForm, "Oops! There was a problem submitting your form");
     });
-  }
-  
-  form.addEventListener("submit", handleSubmit);
-  
-  function displayError(thisForm, error) {
-    thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
-    thisForm.querySelector('.error-message').classList.add('d-block');
-  }  
+
+    fetch(form.action, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('responseMessage').textContent = 'Thank you! Your message has been sent.';
+            document.getElementById('responseMessage').classList.add('sent-message');
+            document.getElementById('responseMessage').classList.remove('error-message');
+            form.reset(); // Optionally reset the form
+        } else {
+            return response.text().then(text => {
+                document.getElementById('responseMessage').textContent = `Submission failed: ${text}`;
+                document.getElementById('responseMessage').classList.add('error-message');
+                document.getElementById('responseMessage').classList.remove('sent-message');
+              });
+        }
+    })
+    .catch(error => {
+        document.getElementById('responseMessage').textContent = `Submission failed: ${error.message}`;
+        document.getElementById('responseMessage').classList.add('error-message');
+        document.getElementById('responseMessage').classList.remove('sent-message');
+      });
+  });
 })();

@@ -108,7 +108,7 @@
                 Whether you're striving to improve your grades in Maths, enhance your language skills in English or Arabic, or deepen your understanding of Science, Star Tuitions is here to support your journey every step of the way.
               </p>
               <div class="text-center">
-                <a href="#contact" class="more-btn"><span>Book a Free Consultation!</span> <i class="bi bi-chevron-right"></i></a>
+                <a href="#contact" class="more-btn">Book a Free Consultation!<i class="bi bi-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -1062,27 +1062,24 @@
           </div><!-- End Info Item -->
 
         </div>
-        <form id="my-form" action="https://formspree.io/f/xeojwjwn" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="50">
-          <div class="row gy-4">
-          
+
+        <form id="contactForm" action="https://submit-form.com/NjnWDaBIi">
+          <div class="row gy-4 php-email-form" data-aos="fade-up" data-aos-delay="50">
               <!-- Student Name -->
               <div class="col-md-6">
-                  <input type="text" name="Student Name" class="form-control" placeholder="Student Name" required>
+                  <input type="text" id="Student Name" name="Student Name" class="form-control" placeholder="Student Name" required>
               </div>
-          
               <!-- Email -->
               <div class="col-md-6">
-                  <input type="email" name="E-Mail" class="form-control" placeholder="Your Email" required>
+                  <input type="email" id="E-Mail" name="E-Mail" class="form-control" placeholder="Your Email" required>
               </div>
-          
               <!-- Phone Number -->
               <div class="col-md-6">
-                  <input type="tel" name="Phone Number" class="form-control" placeholder="Phone Number" required>
+                  <input type="tel" id="Phone Number" name="Phone Number" class="form-control" placeholder="Phone Number" required>
               </div>
-          
               <!-- School Year (Dropdown) -->
               <div class="col-md-6">
-                  <select name="School Year" class="form-control" required>
+                  <select id="School Year" name="School Year" class="form-control" required>
                       <option value="" disabled selected>Select School Year</option>
                       <option value="Year 3">Year 3</option>
                       <option value="Year 4">Year 4</option>
@@ -1093,81 +1090,74 @@
                       <!-- Add more years as needed -->
                   </select>
               </div>
-          
               <!-- Preferred Days (Checkboxes) -->
               <div class="col-md-6">
                   <label>Preferred Day(s):</label><br> 
                   <div class="checkbox-grid">
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Monday" id="monday">
+                      <div>
+                          <input type="checkbox" id="monday" name="Preferred Day(s)" value="Monday">
                           <label for="monday">Monday</label>
                       </div>
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Tuesday" id="tuesday">
+                      <div>
+                          <input type="checkbox" id="tuesday" name="Preferred Day(s)" value="Tuesday">
                           <label for="tuesday">Tuesday</label>
                       </div>
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Wednesday" id="wednesday">
+                      <div>
+                          <input type="checkbox" id="wednesday" name="Preferred Day(s)" value="Wednesday">
                           <label for="wednesday">Wednesday</label>
                       </div>
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Thursday" id="thursday">
+                      <div>
+                          <input type="checkbox" id="thursday" name="Preferred Day(s)" value="Thursday">
                           <label for="thursday">Thursday</label>
                       </div>
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Friday" id="friday">
+                      <div>
+                          <input type="checkbox" id="friday" name="Preferred Day(s)" value="Friday">
                           <label for="friday">Friday</label>
                       </div>
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Saturday" id="saturday">
+                      <div>
+                          <input type="checkbox" id="saturday" name="Preferred Day(s)" value="Saturday">
                           <label for="saturday">Saturday</label>
                       </div>
-                      <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Preferred Day(s)" value="Sunday" id="sunday">
+                      <div>
+                          <input type="checkbox" id="sunday" name="Preferred Day(s)" value="Sunday">
                           <label for="sunday">Sunday</label>
                       </div>
                   </div>
-              </div>            
-      
+              </div>
               <!-- Subjects (Checkboxes) -->
               <div class="col-md-6">
                   <label>Subject(s):</label><br>
                   <div class="checkbox-grid">
                       <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Subject(s)" value="Maths" id="maths">
+                          <input type="checkbox" id="maths" name="Subject(s)" value="Maths">
                           <label for="maths">Maths</label>
                       </div>
                       <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Subject(s)" value="Science" id="science">
+                          <input type="checkbox" id="science" name="Subject(s)" value="Science">
                           <label for="science">Science</label>
                       </div>
                       <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Subject(s)" value="English" id="english">
+                          <input type="checkbox" id="english" name="Subject(s)" value="English">
                           <label for="english">English</label>
                       </div>
                       <div class="checkbox-wrapper">
-                          <input type="checkbox" name="Subject(s)" value="Arabic" id="arabic">
+                          <input type="checkbox" id="arabic" name="Subject(s)" value="Arabic">
                           <label for="arabic">Arabic</label>
                       </div>
                   </div>
               </div>
-          
               <!-- Message (Textarea) -->
               <div class="col-md-12">
-                <textarea name="Message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                  <textarea name="Message" class="form-control" rows="6" placeholder="Message" required></textarea>
               </div>
-          
               <!-- Submit Button -->
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-  
-                <button type="submit">Submit</button>
+                  <button type="submit">Submit</button>
               </div>
-
+              <!-- Success/Failure Message -->
+              <div id="responseMessage" class="col-md-12 text-center"></div>
           </div>
-      </form>       
+      </form>      
 
       </div>
 
