@@ -1815,16 +1815,6 @@ section,
   touch-action: manipulation;
 }
 
-.contact .php-email-form input[type=checkbox]:checked::before {
-  color: var(--contrast-color);
-  font-size: 12px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  touch-action: manipulation;
-}
-
 /* Hover effect for checkbox */
 .contact .php-email-form input[type=checkbox]:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
@@ -2602,6 +2592,7 @@ body {
   justify-content: center; /* Center horizontally */
   flex-wrap: wrap; /* Allow buttons to wrap onto multiple lines */
   margin: 20px 0;
+  gap: 20px; /* Add space between buttons, both horizontally and vertically */
 }
 
 .swiper-button {
@@ -2611,7 +2602,6 @@ body {
   padding: 10px 30px;
   transition: 0.4s;
   border-radius: 50px;
-  margin: 10px; /* Add margin to create space between buttons */
   flex: 1 1 45%; /* Make the buttons take up 45% of the width, with some flexibility */
   max-width: 200px; /* Set a maximum width for larger screens */
   box-sizing: border-box; /* Ensure padding is included in the width */
