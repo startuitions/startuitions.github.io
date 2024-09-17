@@ -2612,7 +2612,6 @@ body {
   padding: 10px 10px;
   transition: 0.4s;
   border-radius: 50px;
-  width: 5vw;
   box-sizing: border-box; /* Ensure padding is included in the width */
   text-align: center; /* Center the text inside buttons */
 }
@@ -2620,6 +2619,13 @@ body {
 /* Hover effect */
 .swiper-button:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+/* Adjust button size for smaller screens */
+@media (min-width: 769px) {
+  .swiper-button {
+    width: 10vw;
+  }
 }
 
 /* Adjust button size for smaller screens */
