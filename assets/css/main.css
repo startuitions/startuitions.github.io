@@ -2626,11 +2626,13 @@ body {
 @media (max-width: 768px) {
   .swiper-button {
     font-size: 14px;
+    width: 30vw;
   }
 }
 
 @media (max-width: 480px) {
   .swiper-button {
     font-size: 12px;
+    width: 40vw;
   }
 }
